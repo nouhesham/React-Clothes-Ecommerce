@@ -14,8 +14,6 @@ const Details = () => {
     fetch(`https://fakestoreapi.com/products/${param.id}`)
       .then((res) => res.json())
       .then((json) => {
-        console.log(json);
-
         setproduct(json);
       });
   };
@@ -52,7 +50,7 @@ const Details = () => {
             </p>
             <span className={styles.rating}>Rating:</span>
             <Rating
-              initialRating={product.rating.count}
+              initialRating={product?.rating?.rate}
               emptySymbol={emptystar}
               fullSymbol={fullStar}
               readonly
