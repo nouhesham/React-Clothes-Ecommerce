@@ -6,7 +6,7 @@ const Footer = () => {
   return (
     <div className={styles.footer}>
       <Container>
-        <div className="row ">
+        <div className="row flex-md-column flex-lg-row">
           <div className="col-lg-2 p-3">
             <p className="fs-4 text-light pt-5">
               "Bandage is delighted to offer the upcoming fashion styles For
@@ -17,7 +17,7 @@ const Footer = () => {
             <Contact />
           </div>
         </div>
-        <p className="text-white">Copyright@2023summer</p>
+        <p className="text-mute">Copyright@2023summer</p>
       </Container>
     </div>
   );

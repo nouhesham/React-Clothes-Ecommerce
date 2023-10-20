@@ -13,7 +13,7 @@ const Counter = () => {
 
   return (
     <div className="row ">
-      <div className="col-lg-2 d-flex justify-content-between mt-5">
+      <div className="col-lg-2 d-flex justify-content-between justify-md-content-center mt-5">
         <button
           onClick={increment}
           className="btn btn-primary"

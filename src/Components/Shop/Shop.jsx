@@ -47,8 +47,8 @@ const Shop = () => {
       <div className="row mt-4 p-5">
         {products?.map((product) => {
           return (
-            <div className="col-lg-3 mt-4 col-md-6" key={product.id}>
-              <Card style={{ width: "18rem", maxHeight: "40rem" }}>
+            <div className="col-lg-3 mt-4 col-md-6 col-sm-6" key={product.id}>
+              <Card style={{ maxwidth: "18rem", maxHeight: "40rem" }}>
                 <div className={styles.img}>
                   <Card.Img variant="top" src={product.image} />
                 </div>

@@ -10,8 +10,8 @@ const Caroussel = () => {
           alt="First slide"
         />
         <Carousel.Caption>
-          <h5 className="text-light fs-1">Women Section</h5>
-          <p className="text-light fs-4">Your way to fashion</p>
+          <h5 className="text-light fs-lg-1">Women Section</h5>
+          <p className="text-light fs-lg-4">Your way to fashion</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -21,8 +21,8 @@ const Caroussel = () => {
           alt="Second slide"
         />
         <Carousel.Caption>
-          <h5 className="text-light fs-1">Men Section</h5>
-          <p className="text-light fs-4">Embark Your stylish journey</p>
+          <h5 className="text-light fs-lg-1">Men Section</h5>
+          <p className="text-light fs-lg-4">Embark Your stylish journey</p>
         </Carousel.Caption>
       </Carousel.Item>
       <Carousel.Item>
@@ -32,8 +32,8 @@ const Caroussel = () => {
           alt="Third slide"
         />
         <Carousel.Caption>
-          <h5 className="text-light fs-1">Kids Section</h5>
-          <p className="text-light fs-4">Look comfy as you can</p>
+          <h5 className="text-light fs-lg-1">Kids Section</h5>
+          <p className="text-light fs-lg-4">Look comfy as you can</p>
         </Carousel.Caption>
       </Carousel.Item>
     </Carousel>

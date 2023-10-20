@@ -49,21 +49,19 @@ const Contact = () => {
   ));
 
   return (
-    <div>
-      <div className="d-flex  justify-content-center align-items-center pt-5">
-        <div>
-          <h1 className="fs-4 text-light pt-3">Team Leaders :</h1>
-          {user}
-        </div>
-
-        <button
-          className="btn btn-primary"
-          onClick={addUser}
-          style={{ marginLeft: "2rem", width: "9rem", height: "3rem" }}
-        >
-          Click for contact
-        </button>
+    <div className="d-none d-lg-flex  justify-content-center align-items-center pt-5 ">
+      <div>
+        <h1 className="fs-4 text-light pt-3">Team Leaders :</h1>
+        {user}
       </div>
+
+      <button
+        className="btn btn-primary"
+        onClick={addUser}
+        style={{ marginLeft: "2rem", maxwidth: "9rem", minheight: "3rem" }}
+      >
+        Click for contact
+      </button>
     </div>
   );
 };

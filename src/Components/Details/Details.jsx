@@ -34,8 +34,8 @@ const Details = () => {
     fetchproduct();
   }, []);
   return (
-    <div className="row mt-4 p-5">
-      <div className="col-lg-4 mt-4 p-4">
+    <div className="row mt-4 p-md-5 p-sm-0">
+      <div className="col-lg-4 mt-4 p-md-3">
         <div className={styles.img}>
           <Card.Img variant="top" src={product.image} />
         </div>
