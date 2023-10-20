@@ -5,6 +5,7 @@ import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 import Brands from "../Brands/Brands";
 import Caroussel from "../Caroussel/Caroussel";
+import Footer from "../Footer/Footer";
 const Home = () => {
   return (
     <div>
@@ -20,6 +21,7 @@ const Home = () => {
       </Container>
       <Brands />
       <Caroussel />
+      <Footer />
     </div>
   );
 };

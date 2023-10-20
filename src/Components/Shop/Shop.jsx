@@ -1,6 +1,6 @@
 import { useState, useEffect } from "react";
-
 import Card from "react-bootstrap/Card";
+import React from "react";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
 import Rating from "react-rating";
@@ -9,6 +9,7 @@ import { faStar } from "@fortawesome/free-solid-svg-icons";
 
 const Shop = () => {
   const [products, setproducts] = useState([]);
+  const [loader, setloader] = useState();
   const fullStar = (
     <FontAwesomeIcon
       icon={faStar}
@@ -22,22 +23,31 @@ const Shop = () => {
     />
   );
   const getproducts = () => {
+    setloader(true);
     fetch("https://fakestoreapi.com/products")
       .then((res) => res.json())
       .then((json) => {
+        setloader(false);
         setproducts(json);
-        console.log(json);
       });
   };
   useEffect(() => {
     getproducts();
   }, []);
+
+  if (loader) {
+    return (
+      <div>
+        <h1>Loading.....</h1>
+      </div>
+    );
+  }
   return (
     <h1>
       <div className="row mt-4 p-5">
         {products?.map((product) => {
           return (
-            <div className="col-lg-3 mt-4">
+            <div className="col-lg-3 mt-4 col-md-6" key={product.id}>
               <Card style={{ width: "18rem", maxHeight: "40rem" }}>
                 <div className={styles.img}>
                   <Card.Img variant="top" src={product.image} />

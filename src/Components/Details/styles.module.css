@@ -1,6 +1,11 @@
 .img {
   padding: 3rem;
 }
+@media (max-width: 500px) {
+  .img {
+    padding: 5rem;
+  }
+}
 .description {
   font-size: 1rem;
   padding: 2rem 4rem 2rem 0;

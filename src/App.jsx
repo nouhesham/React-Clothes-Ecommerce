@@ -6,12 +6,12 @@ import Navbarsection from "./Components/Navbar/Navbar";
 import About from "./Components/About/About";
 import Shop from "./Components/Shop/Shop";
 import Home from "./Components/Home/Home";
+import Footer from "./Components/Footer/Footer";
 
 function App() {
   return (
     <BrowserRouter>
       <Navbarsection />
-
       <Routes>
         <Route path="/about" element={<About />}></Route>
         <Route path="/" element={<Home />}></Route>
