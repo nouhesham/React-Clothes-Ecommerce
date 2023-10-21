@@ -13,6 +13,7 @@ const UseGetproducts = () => {
           "https://fakestoreapi.com/products"
         );
         setproducts((prev) => [...prev, ...productslist.data]);
+        console.log(productslist);
         setLoading(false);
       } catch (error) {
         setLoading(false);
