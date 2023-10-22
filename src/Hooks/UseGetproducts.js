@@ -9,11 +9,11 @@ const UseGetproducts = () => {
   useEffect(() => {
     const loadproducts = async () => {
       try {
+        setLoading(true);
         const productslist = await axios.get(
           "https://fakestoreapi.com/products"
         );
         setproducts((prev) => [...prev, ...productslist.data]);
-        console.log(productslist);
         setLoading(false);
       } catch (error) {
         setLoading(false);

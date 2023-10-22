@@ -1,8 +1,19 @@
 import React from "react";
+import { Audio } from "react-loader-spinner";
 
-const Loader = ({ children, loading, error }) => {
-  if (loading) {
-    return <p>loading please waiting</p>;
+const LoaderComponent = ({ children, Loader, error }) => {
+  if (Loader) {
+    return (
+      <Audio
+        height={80}
+        width={80}
+        radius={9}
+        color="green"
+        ariaLabel="loading"
+        wrapperStyle={{}}
+        wrapperClass=""
+      />
+    );
   }
   if (error) {
     return <p>{error}</p>;
@@ -10,4 +21,4 @@ const Loader = ({ children, loading, error }) => {
   return <div>{children}</div>;
 };
 
-export default Loader;
+export default LoaderComponent;

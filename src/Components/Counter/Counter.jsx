@@ -1,29 +1,38 @@
-import { useState } from "react";
-
+import { useSelector } from "react-redux/es/hooks/useSelector";
+import { useDispatch } from "react-redux";
+import { increment } from "../../Redux/Slices/CounterSlice";
+import { decrement } from "../../Redux/Slices/CounterSlice";
 const Counter = () => {
-  const [counter, setCounter] = useState(0);
-  const increment = () => {
-    setCounter(counter + 1);
+  const counterGlobalState = useSelector((store) => store.counter.counter);
+  console.log(counterGlobalState);
+  const dispatch = useDispatch();
+  const handleincrement = () => {
+    dispatch(increment());
   };
-  const decrement = () => {
-    if (counter > 0) {
-      setCounter(counter - 1);
+  const decrementhandler = () => {
+    if (counterGlobalState > 0) {
+      dispatch(decrement());
     }
   };
+
+  //state global
+  //increment action
+  //decrement action
+  //this is the store that is carrying the counter from the slice
 
   return (
     <div className="row ">
       <div className="col-lg-2 d-flex justify-content-between justify-md-content-center mt-5">
         <button
-          onClick={increment}
+          onClick={handleincrement}
           className="btn btn-primary"
           style={{ width: "2rem" }}
         >
           +
         </button>
-        <p>{counter}</p>
+        <p>{counterGlobalState}</p>
         <button
-          onClick={decrement}
+          onClick={decrementhandler}
           className="btn btn-primary "
           style={{ width: "2rem" }}
         >
