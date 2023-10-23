@@ -23,6 +23,8 @@ const Navbarsection = () => {
             <Nav.Link href="/shop">Shop</Nav.Link>
             <Nav.Link href="/about">About</Nav.Link>
             <Nav.Link href="/blog">Blog</Nav.Link>
+            <Nav.Link href="/login">Login</Nav.Link>
+            <Nav.Link href="/register">Register</Nav.Link>
             <Nav.Link href="/contact">Contact</Nav.Link>
             <Nav.Link href="/cart">
               <HiShoppingCart size={30} />

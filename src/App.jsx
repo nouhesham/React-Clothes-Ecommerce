@@ -6,8 +6,9 @@ import Navbarsection from "./Components/Navbar/Navbar";
 import About from "./Components/About/About";
 import Shop from "./Components/Shop/Shop";
 import Home from "./Components/Home/Home";
-import Footer from "./Components/Footer/Footer";
 import CartIcon from "./Components/CartComponent/Cart";
+import Login from "./Components/Login/Login";
+import Register from "./Components/Register/register";
 
 function App() {
   return (
@@ -19,6 +20,8 @@ function App() {
         <Route path="/shop" element={<Shop />}></Route>
         <Route path="/shop/:id" element={<Details />}></Route>
         <Route path="/cart" element={<CartIcon />}></Route>
+        <Route path="/login" element={<Login />}></Route>
+        <Route path="/register" element={<Register />}></Route>
       </Routes>
     </BrowserRouter>
   );

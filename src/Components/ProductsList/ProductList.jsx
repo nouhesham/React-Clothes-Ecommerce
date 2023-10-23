@@ -5,6 +5,8 @@ import styles from "./styles.module.css";
 import Rating from "react-rating";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { Badge } from "react-bootstrap";
+import { HiShoppingCart } from "react-icons/hi";
 
 const ProductsList = ({ products }) => {
   const fullStar = (
@@ -46,13 +48,16 @@ const ProductsList = ({ products }) => {
                     fullSymbol={fullStar}
                     readonly
                   />
-                  <div className="d-flex justify-content-center">
+                  <div className="d-flex justify-content-between align-items-center">
                     <Link
                       className={styles.view}
                       to={`/shop/${product.id}`}
                       variant="primary"
                     >
                       View Details
+                    </Link>
+                    <Link>
+                      <HiShoppingCart size={30} />
                     </Link>
                   </div>
                 </Card.Body>
