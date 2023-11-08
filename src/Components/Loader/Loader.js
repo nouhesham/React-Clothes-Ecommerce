@@ -1,17 +1,16 @@
 import React from "react";
-import { Audio } from "react-loader-spinner";
+
+import Loader from "react-loader-spinner";
 
 const LoaderComponent = ({ children, Loader, error }) => {
   if (Loader) {
     return (
-      <Audio
+      <Loader
+        type="BallTriangle"
+        color="#00BFFF"
         height={80}
         width={80}
-        radius={9}
-        color="green"
-        ariaLabel="loading"
-        wrapperStyle={{}}
-        wrapperClass=""
+        timeout={3000} //3 secs
       />
     );
   }

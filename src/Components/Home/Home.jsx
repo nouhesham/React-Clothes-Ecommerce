@@ -6,6 +6,7 @@ import styles from "./styles.module.css";
 import Brands from "../Brands/Brands";
 import Caroussel from "../Caroussel/Caroussel";
 import Footer from "../Footer/Footer";
+import BlogSection from "../Blogcomponent/Blog";
 const Home = () => {
   return (
     <div>
@@ -20,6 +21,7 @@ const Home = () => {
         </Button>
       </Container>
       <Brands />
+      <BlogSection />
       <Caroussel />
       <Footer />
     </div>

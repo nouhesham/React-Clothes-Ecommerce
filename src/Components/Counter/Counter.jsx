@@ -15,11 +15,6 @@ const Counter = () => {
     }
   };
 
-  //state global
-  //increment action
-  //decrement action
-  //this is the store that is carrying the counter from the slice
-
   return (
     <div className="row ">
       <div className="col-lg-2 d-flex justify-content-between justify-md-content-center mt-5">

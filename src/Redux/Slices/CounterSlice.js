@@ -19,7 +19,6 @@ const CounterSlice = createSlice({
     },
   },
 });
-console.log(CounterSlice);
 
 //those are the actionsss itself different than the reducers themselves
 

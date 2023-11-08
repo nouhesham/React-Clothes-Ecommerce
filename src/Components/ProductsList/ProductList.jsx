@@ -5,10 +5,16 @@ import styles from "./styles.module.css";
 import Rating from "react-rating";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
-import { Badge } from "react-bootstrap";
 import { HiShoppingCart } from "react-icons/hi";
+import { addtoCart } from "../../Redux/Slices/CartSlice";
+import { useDispatch } from "react-redux";
 
 const ProductsList = ({ products }) => {
+  const dispatch = useDispatch();
+  const handleAddToCart = (product) => {
+    dispatch(addtoCart(product));
+  };
+
   const fullStar = (
     <FontAwesomeIcon
       icon={faStar}
@@ -57,7 +63,10 @@ const ProductsList = ({ products }) => {
                       View Details
                     </Link>
                     <Link>
-                      <HiShoppingCart size={30} />
+                      <HiShoppingCart
+                        size={30}
+                        onClick={() => handleAddToCart(product)}
+                      />
                     </Link>
                   </div>
                 </Card.Body>

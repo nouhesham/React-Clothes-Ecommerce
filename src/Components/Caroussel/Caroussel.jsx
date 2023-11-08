@@ -1,42 +1,97 @@
-import Carousel from "react-bootstrap/Carousel";
+import React from "react";
+import { Swiper, SwiperSlide } from "swiper/react";
+import UseGetproducts from "../../Hooks/UseGetproducts.js";
+import { Pagination, Navigation, A11y, Scrollbar } from "swiper/modules";
+import "swiper/css/pagination";
+import "swiper/css";
+import "swiper/css/effect-fade";
+import "swiper/css/scrollbar";
+import "swiper/css/navigation";
+import { Link } from "react-router-dom";
 
 const Caroussel = () => {
+  const [loader, error, products] = UseGetproducts();
+  const limitedProducts = products.slice(0, 10);
+
+  const swiperParams = {
+    slidesPerView: 5,
+    spaceBetween: 40,
+    pagination: {
+      clickable: true,
+    },
+    breakpoints: {
+      1300: {
+        slidesPerView: 4,
+        spaceBetween: 15,
+      },
+      768: {
+        slidesPerView: 3,
+        spaceBetween: 10,
+      },
+      576: {
+        slidesPerView: 2,
+        spaceBetween: 20,
+      },
+      350: {
+        slidesPerView: 1,
+        spaceBetween: 30,
+      },
+    },
+  };
+
   return (
-    <Carousel data-bs-theme="dark" className="m-4 p-4">
-      <Carousel.Item>
-        <img
-          className="d-block w-100 h-100"
-          src="https://images.pexels.com/photos/6457579/pexels-photo-6457579.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="First slide"
-        />
-        <Carousel.Caption>
-          <h5 className="text-light fs-lg-1">Women Section</h5>
-          <p className="text-light fs-lg-4">Your way to fashion</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100 h-100"
-          src="https://images.pexels.com/photos/5543538/pexels-photo-5543538.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="Second slide"
-        />
-        <Carousel.Caption>
-          <h5 className="text-light fs-lg-1">Men Section</h5>
-          <p className="text-light fs-lg-4">Embark Your stylish journey</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-      <Carousel.Item>
-        <img
-          className="d-block w-100 h-100"
-          src="https://images.pexels.com/photos/5560471/pexels-photo-5560471.jpeg?auto=compress&cs=tinysrgb&w=1260&h=750&dpr=1"
-          alt="Third slide"
-        />
-        <Carousel.Caption>
-          <h5 className="text-light fs-lg-1">Kids Section</h5>
-          <p className="text-light fs-lg-4">Look comfy as you can</p>
-        </Carousel.Caption>
-      </Carousel.Item>
-    </Carousel>
+    <section className="most-selling py-5">
+      <div className="container">
+        <div className="MOstSelling">
+          <h4 className="text-center">Most Selling products</h4>
+        </div>
+        <Swiper
+          {...swiperParams}
+          modules={[Pagination, Navigation, A11y, Scrollbar]}
+          className="mySwiper p-lg-5 p-md-4 p-sm-1"
+        >
+          {limitedProducts.map((product, index) => {
+            return (
+              <SwiperSlide
+                key={index}
+                className="p-lg-3 p-md-2 p-sm-4 "
+                style={{ width: "100%" }}
+              >
+                <figure className="img">
+                  <img
+                    src={product.image}
+                    alt={product.title}
+                    // className="p-md-3 p-lg-5 p-sm-1 w-50 mx-auto"
+                  ></img>
+                </figure>
+                <div>
+                  <p
+                    className="fw-semibold text-center"
+                    style={{
+                      backgroundColor: "pink",
+                      borderRadius: "5rem",
+                      width: "80%",
+                      margin: "auto",
+                    }}
+                  >
+                    {product.category}
+                  </p>
+                  <p className="fw-semibold text-center">
+                    {product.title.slice(0, 30)}
+                  </p>
+                  <Link
+                    to={`/shop/${product.id}`}
+                    className="d-flex justify-content-center text-decoration-none"
+                  >
+                    View product
+                  </Link>
+                </div>
+              </SwiperSlide>
+            );
+          })}
+        </Swiper>
+      </div>
+    </section>
   );
 };
 
