@@ -10,22 +10,22 @@ const Cartslice = createSlice({
   initialState,
   reducers: {
     addtoCart: (state, action) => {
-      const Cartlist = JSON.parse(JSON.stringify(state.cart));
-      const index = Cartlist.findIndex((item) => item.id === action.payload.id);
-
-      if (index === -1) {
-        Cartlist.push({
-          ...action.payload,
-          quantity: 1,
-          subtotal: action.payload.price,
-        });
+      const itemToAdd = action.payload;
+      const existingItemIndex = state.cart.findIndex((item) => item.id === itemToAdd.id);
+      if (existingItemIndex !== -1) {
+        // Item already in the cart
+        state.cart[existingItemIndex].quantity += 1;
+        state.cart[existingItemIndex].subtotal = state.cart[existingItemIndex].price * state.cart[existingItemIndex].quantity;
       } else {
-        const existingItem = Cartlist[index];
-        existingItem.quantity += 1;
-        existingItem.subtotal = existingItem.price * existingItem.quantity;
+        // Item not in the cart, add it
+        state.cart.push({
+          ...itemToAdd,
+          quantity: 1,
+          subtotal: itemToAdd.price,
+        });
+        console.log(JSON.parse(JSON.stringify(state.cart)))
       }
-      console.log(Cartlist);
-      state.cart = Cartlist;
+
     },
     removeFromCart: (state, action) => {
       const Cart = JSON.parse(JSON.stringify(state.cart));
