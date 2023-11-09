@@ -28,7 +28,8 @@ const BlogSection = () => {
   return (
     <div id="blogs">
       <Container>
-        <h2 className="text-center font-details-b pb-4">Latest Blogs</h2>
+        (articles != null&&
+        <h2 className="text-center font-details-b pb-4">Latest Blogs</h2>)
         <div className="row">
           {articlesList.map((article) => {
             return article.urlToImage !== null && article.title != null ? (
