@@ -25,7 +25,6 @@ function Register() {
   } = useForm();
 
   const onSubmit = (data) => {
-    console.log("hello");
     console.log(data);
     console.log(data.errors);
   };

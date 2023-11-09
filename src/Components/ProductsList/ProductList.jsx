@@ -28,48 +28,53 @@ const ProductsList = ({ products }) => {
     />
   );
   return (
-    <div className="row mt-4 p-5">
+    <div className="row mt-4 p-5 me-0">
       {products.length > 0 &&
         products.map((product) => {
           return (
-            <div className="col-lg-3 mt-4 col-md-6 col-sm-6" key={product.id}>
-              <Card style={{ maxwidth: "18rem", maxHeight: "40rem" }}>
-                <div className={styles.img}>
-                  <Card.Img variant="top" src={product.image} />
+            <div
+              className="col-lg-3 mt-4 col-md-4 col-sm-6 col-xs-12"
+              key={product.id}
+            >
+              <Card className="h-100 d-flex flex-column justify-content-between align-items-between p-2">
+                <div className="d-flex p-3  h-100 justify-content-center align-items-center">
+                  <Card.Img src={product.image} />
                 </div>
 
-                <Card.Body>
-                  <Card.Title>{product.title.slice(0, 23)}</Card.Title>
-                  <Card.Text className={styles.shop}>
-                    {product.description.slice(-50)}
-                  </Card.Text>
-                  <Card.Text className={styles.price}>
-                    <span className="text-primary me-2">Price:</span>
-                    {product.price}$
-                  </Card.Text>
-                  <span className={styles.rate}>Rating:</span>
-                  <Rating
-                    initialRating={product.rating.rate}
-                    emptySymbol={emptystar}
-                    fullSymbol={fullStar}
-                    readonly
-                  />
-                  <div className="d-flex justify-content-between align-items-center">
-                    <Link
-                      className={styles.view}
-                      to={`/shop/${product.id}`}
-                      variant="primary"
-                    >
-                      View Details
-                    </Link>
-                    <Link>
-                      <HiShoppingCart
-                        size={30}
-                        onClick={() => handleAddToCart(product)}
-                      />
-                    </Link>
-                  </div>
-                </Card.Body>
+                <div>
+                  <Card.Body className="d-flex flex-column">
+                    <Card.Title>{product.title.slice(0, 23)}</Card.Title>
+                    <Card.Text className={styles.shop}>
+                      {product.description.slice(-50)}
+                    </Card.Text>
+                    <Card.Text className={styles.price}>
+                      <span className="text-primary me-2">Price:</span>
+                      {product.price}$
+                    </Card.Text>
+                    <span className={styles.rate}>Rating:</span>
+                    <Rating
+                      initialRating={product.rating.rate}
+                      emptySymbol={emptystar}
+                      fullSymbol={fullStar}
+                      readonly
+                    />
+                    <div className="d-flex justify-content-around align-items-center">
+                      <Link
+                        className={styles.view}
+                        to={`/shop/${product.id}`}
+                        variant="primary"
+                      >
+                        View Details
+                      </Link>
+                      <Link>
+                        <HiShoppingCart
+                          size={30}
+                          onClick={() => handleAddToCart(product)}
+                        />
+                      </Link>
+                    </div>
+                  </Card.Body>
+                </div>
               </Card>
             </div>
           );

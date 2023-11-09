@@ -1,16 +1,23 @@
-import { useParams } from "react-router-dom";
+import { Link, useParams } from "react-router-dom";
 import { useEffect, useState } from "react";
-import { Card } from "react-bootstrap";
+import { Badge, Card } from "react-bootstrap";
 import styles from "./styles.module.css";
-import Counter from "../Counter/Counter";
-
+import { useDispatch } from "react-redux";
 import Rating from "react-rating";
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faStar } from "@fortawesome/free-solid-svg-icons";
+import { HiShoppingCart } from "react-icons/hi";
+import { useSelector } from "react-redux";
+import { addtoCart } from "../../Redux/Slices/CartSlice";
 
 const Details = () => {
   const param = useParams();
+  const dispatch = useDispatch();
   const [product, setproduct] = useState({});
+  const Counterproducts = useSelector((store) => store.cart.cart);
+  const handleAddtoCart = (product) => {
+    dispatch(addtoCart(product));
+  };
   const fetchproduct = () => {
     fetch(`https://fakestoreapi.com/products/${param.id}`)
       .then((res) => res.json())
@@ -34,9 +41,9 @@ const Details = () => {
     fetchproduct();
   }, []);
   return (
-    <div className="row mt-4 p-md-5 p-sm-0">
-      <div className="col-lg-4 mt-4 p-md-3">
-        <div className={styles.img}>
+    <div className="row mt-4 p-md-5 p-sm-0  d-flex flex-row justify-content-center align-items-center">
+      <div className="col-lg-4 mt-4 p-md-3 p-lg-5">
+        <div className="p-5">
           <Card.Img variant="top" src={product.image} />
         </div>
       </div>
@@ -55,7 +62,14 @@ const Details = () => {
             fullSymbol={fullStar}
             readonly
           />
-          <Counter />
+
+          <HiShoppingCart
+            size={30}
+            onClick={() => {
+              handleAddtoCart(product);
+            }}
+          />
+          <Badge bg="primary">Add to the cart</Badge>
         </div>
       </div>
     </div>

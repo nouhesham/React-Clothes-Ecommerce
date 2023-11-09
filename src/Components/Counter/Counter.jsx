@@ -4,7 +4,7 @@ import { increment } from "../../Redux/Slices/CounterSlice";
 import { decrement } from "../../Redux/Slices/CounterSlice";
 const Counter = () => {
   const counterGlobalState = useSelector((store) => store.counter.counter);
-  console.log(counterGlobalState);
+
   const dispatch = useDispatch();
   const handleincrement = () => {
     dispatch(increment());

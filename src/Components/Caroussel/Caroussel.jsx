@@ -52,19 +52,15 @@ const Caroussel = () => {
         >
           {limitedProducts.map((product, index) => {
             return (
-              <SwiperSlide
-                key={index}
-                className="p-lg-3 p-md-2 p-sm-4 "
-                style={{ width: "100%" }}
-              >
-                <figure className="img">
+              <SwiperSlide key={index} className="p-lg-3 p-md-2 p-sm-4">
+                <figure>
                   <img
                     src={product.image}
                     alt={product.title}
-                    // className="p-md-3 p-lg-5 p-sm-1 w-50 mx-auto"
+                    style={{ width: "90%", height: "15rem" }}
                   ></img>
                 </figure>
-                <div>
+                <div className="flex flex-column justify-content-end">
                   <p
                     className="fw-semibold text-center"
                     style={{
@@ -81,7 +77,7 @@ const Caroussel = () => {
                   </p>
                   <Link
                     to={`/shop/${product.id}`}
-                    className="d-flex justify-content-center text-decoration-none"
+                    className="d-flex justify-content-center text-decoration-none mb-5"
                   >
                     View product
                   </Link>

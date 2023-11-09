@@ -1,5 +1,4 @@
 import { Container } from "react-bootstrap";
-import styles from "./styles.module.css";
 
 const Brands = () => {
   const photos = [
@@ -12,11 +11,14 @@ const Brands = () => {
   return (
     <div>
       <Container>
-        <div className="row p-5">
+        <div className="row p-5 justify-content-center align-items-center">
           {photos.map((photo) => (
-            <div className="col-lg-3 p-3" key={photo.id}>
-              <div className={styles.img}>
-                <img src={photo.image} alt={photo.name} className="w-100" />
+            <div
+              className="col-lg-3 p-3 d-flex justify-content-center align-items-center "
+              key={photo.id}
+            >
+              <div>
+                <img src={photo.image} alt={photo.name} className=" h-100" />
               </div>
             </div>
           ))}

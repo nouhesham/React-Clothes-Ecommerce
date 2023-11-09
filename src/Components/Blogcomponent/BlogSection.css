@@ -1,11 +1,3 @@
-/* .image-resize {
-  height: 50%;
-  width: 100%;
-} */
-.card-resize {
-  height: 30rem;
-}
-
 @media only screen and (max-width: 786px) {
   .card-deck {
     flex-direction: row;

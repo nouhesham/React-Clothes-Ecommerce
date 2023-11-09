@@ -11,11 +11,15 @@ const Cartslice = createSlice({
   reducers: {
     addtoCart: (state, action) => {
       const itemToAdd = action.payload;
-      const existingItemIndex = state.cart.findIndex((item) => item.id === itemToAdd.id);
+      const existingItemIndex = state.cart.findIndex(
+        (item) => item.id === itemToAdd.id
+      );
       if (existingItemIndex !== -1) {
         // Item already in the cart
         state.cart[existingItemIndex].quantity += 1;
-        state.cart[existingItemIndex].subtotal = state.cart[existingItemIndex].price * state.cart[existingItemIndex].quantity;
+        state.cart[existingItemIndex].subtotal =
+          state.cart[existingItemIndex].price *
+          state.cart[existingItemIndex].quantity;
       } else {
         // Item not in the cart, add it
         state.cart.push({
@@ -23,9 +27,7 @@ const Cartslice = createSlice({
           quantity: 1,
           subtotal: itemToAdd.price,
         });
-        console.log(JSON.parse(JSON.stringify(state.cart)))
       }
-
     },
     removeFromCart: (state, action) => {
       const Cart = JSON.parse(JSON.stringify(state.cart));
@@ -34,14 +36,14 @@ const Cartslice = createSlice({
     },
     increaseQuantity: (state, action) => {
       const Cart = JSON.parse(JSON.stringify(state.cart));
-      const product = Cart.find((item) => item.id === action.payload.id);
+      const product = Cart.find((item) => item.id === action.payload);
       product.quantity++;
       product.subtotal = product.price * product.quantity;
       state.cart = Cart;
     },
     decreaseQuantity: (state, action) => {
       const Cart = JSON.parse(JSON.stringify(state.cart));
-      const product = Cart.find((item) => item.id === action.payload.id);
+      const product = Cart.find((item) => item.id === action.payload);
       if (product.quantity > 1) {
         product.quantity--;
       }
