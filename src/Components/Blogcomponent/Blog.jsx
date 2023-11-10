@@ -28,7 +28,7 @@ const BlogSection = () => {
   return (
     <div id="blogs">
       <Container>
-        {articlesList != null && articlesList.length > 0 && (
+        {articlesList && articlesList.length > 0 && (
           <h2 className="text-center font-details-b pb-4">Latest Blogs</h2>
         )}
         {
