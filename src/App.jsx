@@ -8,7 +8,6 @@ import Home from "./Components/Home/Home";
 import CartIcon from "./Components/CartComponent/Cart";
 import Login from "./Components/Login/Login";
 import Register from "./Components/Register/register";
-import BlogSection from "./Components/Blogcomponent/Blog";
 
 function App() {
   return (
@@ -21,7 +20,6 @@ function App() {
         <Route path="/cart" element={<CartIcon />}></Route>
         <Route path="/login" element={<Login />}></Route>
         <Route path="/register" element={<Register />}></Route>
-        <Route path="/blog" element={<BlogSection />}></Route>
       </Routes>
     </BrowserRouter>
   );

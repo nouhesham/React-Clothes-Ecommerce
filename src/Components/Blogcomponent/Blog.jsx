@@ -28,34 +28,37 @@ const BlogSection = () => {
   return (
     <div id="blogs">
       <Container>
-        (articles != null&&
-        <h2 className="text-center font-details-b pb-4">Latest Blogs</h2>)
-        <div className="row">
-          {articlesList.map((article) => {
-            return article.urlToImage !== null && article.title != null ? (
-              <div className="col-lg-4" key={article.author}>
-                <Tilt className="h-100 p-2">
-                  <Card className="card-resize m-2  d-flex flex-column justify-items-between h-100">
-                    <Card.Img
-                      className="h-100"
-                      variant="top"
-                      src={article.urlToImage && article?.urlToImage}
-                      alt="Blog 1"
-                    />
-                    <Card.Body className="flex-grow-1">
-                      <Card.Title className="text-center">
-                        {article.content && article?.content?.slice(0, 29)}
-                      </Card.Title>
-                      <Card.Text className="text-center">
-                        {article?.description?.slice(0, 100)}
-                      </Card.Text>
-                    </Card.Body>
-                  </Card>
-                </Tilt>
-              </div>
-            ) : null;
-          })}
-        </div>
+        {articlesList != null && (
+          <h2 className="text-center font-details-b pb-4">Latest Blogs</h2>
+        )}
+        {
+          <div className="row">
+            {articlesList.map((article) => {
+              return article.urlToImage !== null && article.title != null ? (
+                <div className="col-lg-4" key={article.author}>
+                  <Tilt className="h-100 p-2">
+                    <Card className="card-resize m-2  d-flex flex-column justify-items-between h-100">
+                      <Card.Img
+                        className="h-100"
+                        variant="top"
+                        src={article.urlToImage && article?.urlToImage}
+                        alt="Blog 1"
+                      />
+                      <Card.Body className="flex-grow-1">
+                        <Card.Title className="text-center">
+                          {article.content && article?.content?.slice(0, 29)}
+                        </Card.Title>
+                        <Card.Text className="text-center">
+                          {article?.description?.slice(0, 100)}
+                        </Card.Text>
+                      </Card.Body>
+                    </Card>
+                  </Tilt>
+                </div>
+              ) : null;
+            })}
+          </div>
+        }
       </Container>
     </div>
   );
