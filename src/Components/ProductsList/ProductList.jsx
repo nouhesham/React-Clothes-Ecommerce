@@ -37,7 +37,7 @@ const ProductsList = ({ products }) => {
               key={product.id}
             >
               <Card className="h-100 d-flex flex-column justify-content-between align-items-between p-2">
-                <div className="d-flex p-3  h-100 justify-content-center align-items-center">
+                <div className="d-flex p-3  h-100 justify-content-center align-items-cente ">
                   <Card.Img src={product.image} />
                 </div>
 
@@ -58,7 +58,7 @@ const ProductsList = ({ products }) => {
                       fullSymbol={fullStar}
                       readonly
                     />
-                    <div className="d-flex justify-content-around align-items-center">
+                    <div className="d-flex justify-content-between align-items-center">
                       <Link
                         className={styles.view}
                         to={`/shop/${product.id}`}
@@ -68,7 +68,7 @@ const ProductsList = ({ products }) => {
                       </Link>
                       <Link>
                         <HiShoppingCart
-                          size={30}
+                          size={40}
                           onClick={() => handleAddToCart(product)}
                         />
                       </Link>

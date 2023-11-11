@@ -7,6 +7,7 @@ import Brands from "../Brands/Brands";
 import Caroussel from "../Caroussel/Caroussel";
 import Footer from "../Footer/Footer";
 import BlogSection from "../Blogcomponent/Blog";
+import { WomanSection } from "../pagination";
 const Home = () => {
   return (
     <div>
