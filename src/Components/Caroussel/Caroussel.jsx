@@ -41,10 +41,11 @@ const Caroussel = () => {
 
   return (
     <section className="most-selling py-5">
+      <h2 className="text-center font-details-b pb-4 mt-3 text-dark p-2">
+        Most selling Products
+      </h2>
       <div className="container">
-        <div className="MOstSelling">
-          <h4 className="text-center">Most Selling products</h4>
-        </div>
+        <div className="MOstSelling"></div>
         <Swiper
           {...swiperParams}
           modules={[Pagination, Navigation, A11y, Scrollbar]}

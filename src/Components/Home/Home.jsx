@@ -1,5 +1,4 @@
 import Button from "react-bootstrap/Button";
-
 import { Container } from "react-bootstrap";
 import { Link } from "react-router-dom";
 import styles from "./styles.module.css";
@@ -7,7 +6,7 @@ import Brands from "../Brands/Brands";
 import Caroussel from "../Caroussel/Caroussel";
 import Footer from "../Footer/Footer";
 import BlogSection from "../Blogcomponent/Blog";
-import { WomanSection } from "../pagination";
+
 const Home = () => {
   return (
     <div>
@@ -21,8 +20,11 @@ const Home = () => {
           </Link>
         </Button>
       </Container>
-      <Brands />
+
       <BlogSection />
+      <div className="parallax">
+        <Brands />
+      </div>
       <Caroussel />
       <Footer />
     </div>

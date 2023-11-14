@@ -135,13 +135,13 @@ function Register() {
             />
           </Form.Group>
           {errors?.confirmPassword && (
-            <span className="text-danger ">
+            <p className="text-danger text-center ">
               {errors.confirmPassword.message}
-            </span>
+            </p>
           )}
           {watch("confirmPassword") !== watch("password") &&
           getValues("confirmPassword") ? (
-            <span className="text-danger">Password dont match</span>
+            <p className="text-danger text-center">Password dont match</p>
           ) : (
             ""
           )}

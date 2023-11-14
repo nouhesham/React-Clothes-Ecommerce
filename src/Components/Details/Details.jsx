@@ -65,6 +65,7 @@ const Details = () => {
 
           <HiShoppingCart
             size={30}
+            style={{ cursor: "pointer" }}
             onClick={() => {
               handleAddtoCart(product);
             }}

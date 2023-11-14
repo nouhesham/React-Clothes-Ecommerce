@@ -7,17 +7,15 @@ import {
   removeFromCart,
 } from "../../Redux/Slices/CartSlice";
 import { useDispatch } from "react-redux";
-import { Button, Container, InputGroup } from "react-bootstrap";
+import { Button, InputGroup } from "react-bootstrap";
 import { useEffect } from "react";
 
 function CartIcon() {
   const dispatch = useDispatch();
   const cartlist = useSelector((store) => store.cart.cart);
   useEffect(() => {
-    // Dispatching alltotal() when the component mounts
     dispatch(alltotal());
   }, [dispatch]);
-  // dispatch(alltotal());
 
   const total = useSelector((store) => store.cart.total);
 
@@ -40,33 +38,34 @@ function CartIcon() {
     <div className="container">
       <div>
         <h2 className="text-center mb-4">Your Cart</h2>
-        <ul className="list-group p-2">
+        <div className="p-2">
           {cartlist?.map((item) => (
-            <li
+            <div
               key={item.id}
-              className="list-group-item d-flex justify-content-between align-items-center flex-lg-row flex-sm-column"
+              className="d-flex justify-content-between align-items-center flex-lg-row flex-sm-column"
             >
-              <div className="d-flex justify-content-center ">
+              <div className="d-flex  align-items-center ">
                 <div
                   className="d-flex justify-content-center align-items-center"
-                  style={{ width: "33%", margin: "auto" }}
+                  style={{ width: "34%" }}
                 >
                   <img
                     src={item.image}
                     alt={item.title}
                     className="cart-item-image"
+                    style={{ padding: "1.5rem" }}
                   />
                 </div>
                 <div
                   className="d-flex flex-column justify-content-center"
-                  style={{ width: "60%" }}
+                  style={{ width: "30%" }}
                 >
                   <h6>{item.title}</h6>
                   <p className="text-muted">Price: ${item.price}</p>
                 </div>
               </div>
               <div
-                className="d-flex align-items-center w-100"
+                className="d-flex align-items-center w-100 justify-content-center"
                 style={{ width: "50%" }}
               >
                 <InputGroup className="mb-3">
@@ -96,16 +95,16 @@ function CartIcon() {
                   <p>Quantity: {item.quantity}</p>
                   <p>Subtotal: ${Math.floor(item.subtotal)}</p>
                   <button
-                    className="btn btn-danger"
+                    className="btn btn-danger fw"
                     onClick={() => handleRemoveFromCart(item.id)}
                   >
                     Remove item
                   </button>
                 </div>
               </div>
-            </li>
+            </div>
           ))}
-        </ul>
+        </div>
         <h3>
           <div className="row">
             <div className="col-lg-2 ms-auto me-2 d-flex flex-column ">

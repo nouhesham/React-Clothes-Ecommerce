@@ -10,6 +10,7 @@ import axios from "axios";
 const BlogSection = () => {
   // We handler to set the state should be setStateName so => setData X
   const [articlesList, setArticlesList] = useState([]);
+  const [error, setError] = useState(null);
 
   const fetchData = () => {
     axios
@@ -17,7 +18,16 @@ const BlogSection = () => {
         "https://newsapi.org/v2/top-headlines?q=apple&from=2023-11-07&to=2023-11-07&sortBy=popularity&apiKey=4ff734a982784fbeb8ca580b3af320fd"
       )
       .then((response) => {
-        setArticlesList(response.data.articles);
+        if (response.status === 403) {
+          setError(
+            "Access forbidden. Please check your API key or permissions."
+          );
+        } else {
+          setArticlesList(response.data.articles);
+        }
+      })
+      .catch((error) => {
+        setError("Error fetching data. Please try again later.");
       });
   };
 
@@ -28,22 +38,32 @@ const BlogSection = () => {
   return (
     <div id="blogs">
       <Container>
-        {articlesList && articlesList.length > 0 && (
-          <h2 className="text-center font-details-b pb-4">Latest Blogs</h2>
+        {error ? (
+          <h2 className="text-center font-details-b pb-4">{error}</h2>
+        ) : (
+          articlesList &&
+          articlesList.length > 0 && (
+            <h2 className="text-center font-details-b pb-4 mt-3 text-dark">
+              Latest Blogs
+            </h2>
+          )
         )}
         {
           <div className="row">
-            {articlesList.map((article) => {
+            {articlesList.slice(0, 5).map((article) => {
               return article.urlToImage !== null && article.title != null ? (
-                <div className="col-lg-4" key={article.author}>
+                <div className="col-lg-4" key={article.description}>
                   <Tilt className="h-100 p-2">
                     <Card className="card-resize m-2  d-flex flex-column justify-items-between h-100">
-                      <Card.Img
-                        className="h-100"
-                        variant="top"
-                        src={article.urlToImage && article?.urlToImage}
-                        alt="Blog 1"
-                      />
+                      {article?.urlToImage != null && (
+                        <Card.Img
+                          className="h-100"
+                          variant="top"
+                          src={article.urlToImage}
+                          alt="Blog 1"
+                        />
+                      )}
+
                       <Card.Body className="flex-grow-1">
                         <Card.Title className="text-center">
                           {article.content && article?.content?.slice(0, 29)}

@@ -3,7 +3,7 @@ import axios from "axios";
 
 const UseGetproducts = () => {
   const [products, setproducts] = useState([]);
-  const [loader, setLoading] = useState(true);
+  const [isloading, setLoading] = useState(true);
   const [error, setError] = useState(false);
 
   useEffect(() => {
@@ -23,7 +23,7 @@ const UseGetproducts = () => {
     loadproducts();
   }, []);
 
-  return [loader, error, products];
+  return [isloading, error, products];
 };
 
 export default UseGetproducts;

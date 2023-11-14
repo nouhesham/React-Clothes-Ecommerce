@@ -4,11 +4,11 @@ import LoaderComponent from "../Loader/Loader";
 import UseGetproducts from "../../Hooks/UseGetproducts.js";
 
 const Shop = () => {
-  const [loader, error, products] = UseGetproducts();
+  const [isloading, error, products] = UseGetproducts();
 
   return (
     <>
-      <LoaderComponent loader={loader} error={error} />
+      <LoaderComponent isloading={isloading} error={error} />
       <ProductsList products={products} />
     </>
   );

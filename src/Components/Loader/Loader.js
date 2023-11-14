@@ -1,17 +1,23 @@
 import React from "react";
 
-import Loader from "react-loader-spinner";
+import { BallTriangle } from "react-loader-spinner";
 
-const LoaderComponent = ({ children, Loader, error }) => {
-  if (Loader) {
+const LoaderComponent = ({ children, isloading, error }) => {
+  if (isloading) {
     return (
-      <Loader
-        type="BallTriangle"
-        color="#00BFFF"
-        height={80}
-        width={80}
-        timeout={3000} //3 secs
-      />
+      <div className="container">
+        <div className="row">
+          <div className="col-lg-12 d-flex align-items-center justify-content-center">
+            <BallTriangle
+              type="BallTriangle"
+              color="#00BFFF"
+              height={300}
+              width={300}
+              timeout={2000} //3 secs
+            />
+          </div>
+        </div>
+      </div>
     );
   }
   if (error) {
