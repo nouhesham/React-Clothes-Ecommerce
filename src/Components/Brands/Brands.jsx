@@ -11,10 +11,10 @@ const Brands = () => {
   return (
     <div>
       <Container>
-        <div className="row p-5 justify-content-center align-items-center">
+        <div className="row p-5 justify-content-center align-items-center d-md-none d-sm-none d-lg-flex">
           {photos.map((photo) => (
             <div
-              className="col-lg-3 p-3 d-flex justify-content-center align-items-center "
+              className="col-lg-3 p-3 d-flex flex-row  justify-content-center align-items-center "
               key={photo.id}
             >
               <div>
